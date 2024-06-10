@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tezzad.kosync.business.KosyncService;
-import com.tezzad.kosync.entity.KosyncDocumentBean;
-import com.tezzad.kosync.entity.KosyncGetProgressResponseBean;
-import com.tezzad.kosync.entity.KosyncSaveProgressResponseBean;
+import com.tezzad.kosync.models.KosyncDocumentBean;
+import com.tezzad.kosync.models.KosyncGetProgressResponseBean;
+import com.tezzad.kosync.models.KosyncSaveProgressResponseBean;
 
 @RestController
 @RequestMapping("/syncs")

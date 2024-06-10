@@ -1,4 +1,4 @@
-package com.tezzad.kosync.entity;
+package com.tezzad.kosync.models;
 
 import lombok.Getter;
 import lombok.Setter;
