@@ -1,4 +1,4 @@
-package com.tezzad.kosync.controller;
+package com.tezzad.kosync.users.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tezzad.kosync.business.UserService;
-import com.tezzad.kosync.entity.UserEntity;
-import com.tezzad.kosync.models.UserBean;
-import com.tezzad.kosync.models.exceptions.CreateUserException;
+import com.tezzad.kosync.document.entity.BookEntity;
+import com.tezzad.kosync.users.business.UserService;
+import com.tezzad.kosync.users.entity.UserEntity;
+import com.tezzad.kosync.users.models.UserBean;
+import com.tezzad.kosync.users.models.exceptions.AuthUserException;
+import com.tezzad.kosync.users.models.exceptions.CreateUserException;
 
 @RestController
 @RequestMapping("/users")
@@ -33,8 +35,14 @@ public class UserController {
     }
 
     @GetMapping("/auth")
-    public ResponseEntity<String> auth(@RequestHeader("x-auth-user") String user, @RequestHeader("x-auth-key") String password) {
+    public ResponseEntity<String> auth(@RequestHeader("x-auth-user") String user, @RequestHeader("x-auth-key") String password) throws AuthUserException {
         System.out.println(user + " " + password);
+
+        UserBean userBean = new UserBean();
+        userBean.setPassword(password);
+        userBean.setUsername(user);
+
+        UserEntity authUser = userService.authUser(userBean);
 
         return new ResponseEntity<String>("{\"authorized\": \"OK\"}", HttpStatus.OK);
     }
@@ -43,5 +51,11 @@ public class UserController {
     public ResponseEntity<String> handelCreateException(CreateUserException exception){
         return new ResponseEntity<String>(exception.getUsername(), HttpStatus.FORBIDDEN);
     }
+
+    @ExceptionHandler({AuthUserException.class})
+    public ResponseEntity<String> handelCreateException(AuthUserException exception){
+        return new ResponseEntity<String>(exception.getUsername(), HttpStatus.FORBIDDEN);
+    }
+    
 
 }

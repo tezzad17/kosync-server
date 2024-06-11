@@ -1,4 +1,4 @@
-package com.tezzad.kosync.controller;
+package com.tezzad.kosync.document.controller;
 
 import java.util.Date;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tezzad.kosync.business.KosyncService;
-import com.tezzad.kosync.models.KosyncDocumentBean;
-import com.tezzad.kosync.models.KosyncGetProgressResponseBean;
-import com.tezzad.kosync.models.KosyncSaveProgressResponseBean;
+import com.tezzad.kosync.document.business.KosyncService;
+import com.tezzad.kosync.document.models.KosyncDocumentBean;
+import com.tezzad.kosync.document.models.KosyncGetProgressResponseBean;
+import com.tezzad.kosync.document.models.KosyncSaveProgressResponseBean;
 
 @RestController
 @RequestMapping("/syncs")

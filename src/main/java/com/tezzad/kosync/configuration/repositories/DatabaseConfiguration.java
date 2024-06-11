@@ -1,4 +1,4 @@
-package com.tezzad.kosync.repositories;
+package com.tezzad.kosync.configuration.repositories;
 
 import javax.sql.DataSource;
 

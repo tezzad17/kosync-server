@@ -1,4 +1,4 @@
-package com.tezzad.kosync.models.exceptions;
+package com.tezzad.kosync.users.models.exceptions;
 
 import lombok.Getter;
 import lombok.Setter;

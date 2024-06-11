@@ -1,4 +1,4 @@
-package com.tezzad.kosync.entity;
+package com.tezzad.kosync.users.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
