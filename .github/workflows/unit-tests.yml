@@ -1,6 +1,11 @@
 name: unit-tests
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - main
+      - development
+    paths:
+      - 'src/**'
 jobs:
   project-build:
     runs-on: ubuntu-latest
