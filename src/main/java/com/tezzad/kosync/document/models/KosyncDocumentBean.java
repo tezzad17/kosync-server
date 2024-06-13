@@ -1,4 +1,4 @@
-package com.tezzad.kosync.entity;
+package com.tezzad.kosync.document.models;
 
 import java.io.Serializable;
 
